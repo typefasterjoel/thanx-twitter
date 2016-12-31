@@ -50,6 +50,7 @@
 								</div>
 								<!-- .retweet | only show if there is a retweet going on. -->
 
+								<!-- these are for quoted tweets -->
 								<span ng-show="tweet.quoted_status" class="rt quote">Quote</span>
 								<div class="retweet" ng-show="tweet.quoted_status">
 									<div class="tweet-meta">
@@ -62,7 +63,7 @@
 										<p ng-bind-html="tweet.quoted_status.text | tweets:'_blank':{rel: 'nofollow'}"></p>
 									</div>
 								</div>
-								<!-- .retweet | only show if there is a retweet going on. -->
+								<!-- .retweet | reusing the class from the retweets but changing it via css. Shoudl only show with quoted tweets.. -->
 							</div>
 							<!-- .tweet-text -->
 						</div>

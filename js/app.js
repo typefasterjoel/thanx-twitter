@@ -9,6 +9,9 @@ var ThanxTwitterApplication = angular.module('ThanxTwitter', [
 
 }]).filter('tweets', ['$filter', '$sce', function($filter, $sce) {
 	return function (text, target) {
+
+		// This extends the filter of "linky" from angular's sanitize plug-in
+		// and add links to hashtags and mentions on the tweets.
 		if(!text) return text;
 
 		var replacedText = $filter('linky')(text, target);
