@@ -4,7 +4,7 @@ ThanxServices.factory('TwitterApiCalls', ['$http', function($http) {
 	// Set up The calls
 	var ThanxTwitterCalls = {};
 
-	var twitterURL = '../twitter.php'; // URL of file that contains the connection to the Twitter API
+	var twitterURL = 'twitter.php'; // URL of file that contains the connection to the Twitter API
 
 	ThanxTwitterCalls.getUserTweets = function() {
 		// Function to get the tweets from the user timeline
