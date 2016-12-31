@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Thanxs Twitter</title>
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.css">
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body ng-app="ThanxTwitter">
+		<div id="Application">
+			<section id="Top">
+				<div class="container">
+					<a href="#">
+						<span id="Logo"><!-- Image Logo Here --></span>
+					</a>
+					<div class="right-actions">
+						<a href="#" class="button">Sign Up / Log In</a>
+					</div>
+					<!-- .right-actions -->
+				</div>
+				<!-- .container -->
+			</section>
+			<!-- #Top -->
+			<section id="Feed">
+				<div class="container">
+					<div id="ThanxTwitterTimeline" ng-controller="ThanxUserController">
+						<h1>Tweets by <a href="//twitter.com/thanxinc" target="_blank" rel="nofollow">@ThanxInc</a></h1>
+						<div class="tweet" ng-repeat="tweet in timeline" ng-class="{ 'retweeted' : tweet.retweeted_status, 'quoted' : tweet.quoted_status }">
+							<div class="tweet-meta">
+								<div class="tweet-avatar">
+									<img ng-src="{{ tweet.user.profile_image_url_https }}" alt="Twitter Avatar of {{tweet.user.name }}">
+								</div>
+								<h3><a href="//www.twitter.com/{{tweet.user.screen_name}}" target="_blank" rel="nofollow">{{tweet.user.name}}</a></h3>
+								<h4 class="date">{{ tweet.created_at*1000 | date: "LLLL d, yyyy 'at' h:mm a" }}</h4>
+							</div>
+							<div class="tweet-text">
+								<span ng-show="tweet.retweeted_status" class="rt">Retweet</span>
+								<p ng-bind-html="tweet.text | tweets:'_blank':{rel:'nofollow'}" ng-hide="tweet.retweeted_status"></p>
+								<div class="retweet" ng-show="tweet.retweeted_status">
+									<div class="tweet-meta">
+										<div class="tweet-avatar">
+											<img ng-src="{{ tweet.retweeted_status.user.profile_image_url_https }}" alt="Twitter Avatar of {{ tweet.retweeted_status.user.name }}">
+										</div>
+										<h3><a href="//www.twitter.com/{{tweet.retweeted_status.screen_name }}" target="_blank" rel="nofollow">{{tweet.retweeted_status.user.name}}</a></h3>
+									</div>
+									<div class="tweet-text">
+										<p ng-bind-html="tweet.retweeted_status.text | tweets:'_blank':{rel: 'nofollow'}"></p>
+									</div>
+								</div>
+								<!-- .retweet | only show if there is a retweet going on. -->
+
+								<span ng-show="tweet.quoted_status" class="rt quote">Quote</span>
+								<div class="retweet" ng-show="tweet.quoted_status">
+									<div class="tweet-meta">
+										<div class="tweet-avatar">
+											<img ng-src="{{ tweet.quoted_status.user.profile_image_url_https }}" alt="Twitter Avatar of {{ tweet.quoted_status.user.name }}">
+										</div>
+										<h3><a href="//www.twitter.com/{{tweet.quoted_status.screen_name }}" target="_blank" rel="nofollow">{{tweet.quoted_status.user.name}}</a></h3>
+									</div>
+									<div class="tweet-text">
+										<p ng-bind-html="tweet.quoted_status.text | tweets:'_blank':{rel: 'nofollow'}"></p>
+									</div>
+								</div>
+								<!-- .retweet | only show if there is a retweet going on. -->
+							</div>
+							<!-- .tweet-text -->
+						</div>
+						<!-- .tweet -->
+					</div>
+					<!-- #ThanxTwitterTimeline -->
+					<div id="ThanxTwitterHashtag" ng-controller="ThanxHashtagController">
+						<h1>Hashtags <a href="https://twitter.com/search?q=%23thanxinc&src=typd" target="_blank">#ThanxInc</a></h1>
+						<div class="tweet" ng-repeat="tweet in hashtags">
+							<div class="tweet-meta">
+								<div class="tweet-avatar">
+									<img ng-src="{{ tweet.user.profile_image_url_https }}" alt="Twitter Avatar of {{tweet.user.name }}">
+								</div>
+								<h3><a href="//www.twitter.com/{{tweet.user.screen_name}}" target="_blank" rel="nofollow">{{tweet.user.name}}</a></h3>
+								<h4 class="date">{{ tweet.created_at*1000 | date: "LLLL d, yyyy 'at' h:mm a" }}</h4>
+							</div>
+							<div class="tweet-text">
+								<p ng-bind-html="tweet.text | tweets:'_blank':{rel:'nofollow'}"></p>
+							</div>
+							<!-- .tweet-text -->
+						</div>
+						<!-- .tweet -->
+					</div>
+					<!-- #ThanxHashtagController -->
+					<footer>
+						<p>This is a sample excercise for ThanxInc using the Twitter REST API.</p>
+					</footer>
+				</div>
+				<!-- .container -->
+			</section>
+			<!-- #Feed -->
+		</div>
+		<!-- #Application -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-animate.min.js"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-aria.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.js"></script>
+		<script src="js/service.js"></script>
+		<script src="js/controllers.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>

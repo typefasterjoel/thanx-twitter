@@ -1,0 +1,256 @@
+/**
+ * Thanx Twitter Excercise
+ * Author: Joel Lopez
+ */
+
+ *, *:before, *:after {
+ 	box-sizing: border-box;
+ }
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	background: #fcfcfc;
+	color: #353535;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Lato', Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	color: #222;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	color: #138080;
+	text-decoration: none;
+	transition: 0.5s color ease;
+}
+
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover {
+	color: #F67A00;
+}
+
+
+.container {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+#Top {
+	background: #138080;
+	color: #fff;
+	font-family: 'Lato', Arial, Helvetica, sans-serif;
+	padding-bottom: 40px;
+}
+
+#Top a {
+	color: #fff;
+	text-decoration: none;
+	font-weight: 700;
+}
+
+#Logo {
+	display: inline-block;
+	width: 16%;
+	height: 120px;
+	background: url('https://d29j4qeq7fowxc.cloudfront.net/assets/v4/thanx-logo-white-7fbd18b6b245acf946c9cb6a5303a08bcf94da5948d26e7c987bc9b939604c94.png') 50% 50% no-repeat;
+	background-size: contain;
+}
+
+.right-actions {
+	display: inline-block;
+	float: right;
+	padding: 40px 0;
+}
+
+.button {
+	display: block;
+	padding: 10px 26px;
+	border-radius: 100px;
+	border: 2px solid #fff;
+	transition: 0.5s all ease;
+}
+
+.button:hover {
+	background: rgba(255,255,255,0.2);
+}
+
+#Feed {
+	padding-bottom: 80px;
+}
+
+#Feed .container {
+	margin-top: -40px;
+	background: #fff;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+	vertical-align: top;
+}
+
+#ThanxTwitterTimeline {
+	float: left;
+	width: 49%;
+	padding: 30px 0 30px 30px;
+}
+
+#ThanxTwitterHashtag {
+	float: right;
+	width: 49%;
+	padding: 30px 30px 30px 0;
+}
+
+.tweet {
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+	border-radius: 3px;
+	margin-top: 20px;
+}
+
+.tweet-meta {
+	padding: 20px;
+	border-bottom: 1px solid #c7c7c7;
+}
+.tweet-avatar {
+	height: 50px;
+	width: 50px;
+	overflow: hidden;
+	float: left;
+	margin-right: 20px;
+}
+
+.tweet-avatar img {
+	width: 100%;
+	border: 2px solid #138080;
+}
+
+.tweet-meta h3 { font-size: 22px; }
+.tweet-meta a {
+	color: #138080;
+	text-decoration: none;
+}
+.tweet-meta .date {
+	font-size: 14px;
+	font-weight: 100;
+	color: #656565;
+	margin-top: 5px;
+}
+
+.tweet-text {
+	position: relative;
+	padding: 20px;
+	font-size: 16px;
+	font-family: 'Lato', Arial, Helvetica, sans-serif;
+}
+
+.tweet-text p {
+	margin: 0;
+	padding: 0;
+	line-height: 22px;
+}
+.quoted .tweet-text {
+	padding-top: 30px;
+}
+
+.rt {
+	display: block;
+	position: absolute;
+	background: #138080;
+	padding: 5px;
+	top: -25px;
+	right: 0;
+	color: #fff;
+	font-weight: 700;
+	font-size: 12px;
+}
+
+.rt.quote { background: #F67A00 }
+
+.tweet-text a {
+	color: #F67A00;
+	text-decoration: none;
+	transition: color 0.5s ease;
+}
+.tweet-text a:hover { color: #138080; }
+
+
+.retweeted .tweet-text {
+	background: #138080;
+	color: #fff;
+}
+.retweeted .tweet-meta {
+	border-bottom: 1px solid #138080;
+}
+.retweet .tweet-avatar img {
+	border: 1px solid #fff;
+}
+.retweet .tweet-meta {
+	border-bottom: 0;
+	padding: 0;
+	position: relative;
+	z-index: 2;
+}
+.retweet .tweet-meta h3 { font-size: 18px; }
+.retweet .tweet-text { padding: 0 0 0 70px; }
+.retweet a {
+	color: #ffcc00;
+	font-weight: 700;
+	transition: 0.5s color ease;
+}
+.retweet a:hover { color: #fff; }
+
+.quoted .tweet-text {
+	background: #F67A00;
+	color: #fff;
+}
+
+.quoted p {
+	display: block;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+	background: #fff;
+	padding: 10px;
+	color: #353535;
+	position: relative;
+	border-radius: 3px;
+}
+
+.quoted p:after {
+	display: block;
+	position: absolute;
+	bottom: -10px;
+	left: 50%;
+	margin-left: -5px;
+	content: '';
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid #fff;
+}
+
+.quoted .retweet {
+	margin-top: 20px;
+}
+
+.quoted .retweet p {
+	background: none;
+	padding: 0;
+	border-radius: 0;
+	color: #fff;
+	box-shadow: none;
+}
+.quoted .retweet p:after { display: none; }
+
+footer {
+	padding: 10px;
+	font-family: 'Lato', Arial, Helvetica, sans-serif;
+	background: #d7d7d7;
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	clear: both;
+}
